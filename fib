@@ -1,0 +1,23 @@
+#!/bin/bash
+function fib {
+  first=1
+  second=1
+  temp=0
+  for i in $(seq 1 $(expr $n - 2))
+  do
+    temp=$(expr $first + $second)
+    first=$second
+    second=$temp
+  done
+  echo "$second"
+  exit 0
+}
+
+function main {
+  echo "What fib should I calculate?"
+  read n
+  fib $n
+  exit 0
+}
+
+main
